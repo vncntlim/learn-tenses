@@ -16,7 +16,7 @@
         "@tailwindcss/forms": "^0.5.0",
         "@vue/compiler-sfc": "^3.2.31",
         "autoprefixer": "^10.4.2",
-        "axios": "^0.21",
+        "axios": "^0.21.4",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",
@@ -25,6 +25,10 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "bootstrap": "^5.3.0-alpha3",
+        "english-verbs-gerunds": "^3.1.0",
+        "english-verbs-helper": "^3.1.0",
+        "english-verbs-irregular": "^3.1.0",
         "reverso-api": "^2.22.4"
     }
 }
