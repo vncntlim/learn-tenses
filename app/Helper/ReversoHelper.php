@@ -9,14 +9,14 @@ use DOMXPath;
 
 class ReversoHelper
 {
-    public static function getSpellCheck($verb) {
+    public static function getSpellCheck($text) {
         $url    = 'https://orthographe.reverso.net/api/v1/Spelling';
 
         $data   = [
                     'language' => 'eng',
                     'getCorrectionDetails' => true,
                     'origin' => 'interactive',
-                    strtolower($verb)
+                    'text' => strtolower($text)
                     ];
 
         $response = Http::post($url, $data);

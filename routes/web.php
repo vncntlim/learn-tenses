@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\TensesController;
+use App\Http\Controllers\VerbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,13 @@ use App\Http\Controllers\TensesController;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+    return Inertia::render('GenerateTenses');
+})->name('generate-tenses');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/spell-check/{word?}', [TensesController::class, 'spellCheck'])->name('spell-check');
 
 Route::post('/process-verb', [TensesController::class, 'conjugate'])->name('process-verb');
+
+Route::resource('verbs', VerbController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
